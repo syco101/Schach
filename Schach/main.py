@@ -75,7 +75,7 @@ def draw_board():
         for r, c in valid_moves:
             center = (c * SQUARE_SIZE + SQUARE_SIZE // 2, r * SQUARE_SIZE + SQUARE_SIZE // 2)
             color = RED if board[r][c] and board[r][c][0] != current_player else YELLOW
-            pygame.draw.circle(WIN, color, center, 15 if color == RED else 10)
+            pygame.draw.circle(WIN, color, center, 25 if color == RED else 10)
     if highlight_king:
         r, c = highlight_king
         pygame.draw.rect(WIN, RED, (c * SQUARE_SIZE, r * SQUARE_SIZE, SQUARE_SIZE, SQUARE_SIZE), 4)
