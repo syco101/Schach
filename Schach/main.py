@@ -30,7 +30,7 @@ game_over = False
 winner = None
 highlight_king = None
 
-#  Hilfsfunktionen 
+#  Hilfsfunktionen und Bilder
 def load_images():
     for piece in ['bP', 'bR', 'bN', 'bB', 'bQ', 'bK', 'gP', 'gR', 'gN', 'gB', 'gQ', 'gK']:
         path = os.path.join("images", piece + ".png")
@@ -64,7 +64,7 @@ def draw_button(text, x, y, action):
         action()
     draw_text(text, 30, x, y)
 
-#  Zeichnen 
+#  Farben im Spiel
 def draw_board():
     WIN.fill(GREEN)
     for row in range(ROWS):
@@ -158,6 +158,9 @@ def get_valid_moves(b, row, col):
     def on_board(r, c): return 0 <= r < 8 and 0 <= c < 8
     def enemy(r, c): return on_board(r, c) and b[r][c] and b[r][c][0] != color
 
+
+    #Spielfiguren
+
     if kind == "P":
         start_row = 6 if color == "g" else 1
         for step in [1, 2] if row == start_row else [1]:
@@ -206,7 +209,7 @@ def get_valid_moves(b, row, col):
 
     return moves
 
-#  Hauptmenü und Spielstart 
+#  Hauptmenü und Spielstart/ende
 def main_menu():
     while True:
         WIN.fill(DARK_GRAY)
